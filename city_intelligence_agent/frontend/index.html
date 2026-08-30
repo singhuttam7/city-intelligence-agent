@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="City Intelligence AI Assistant" />
+
+    <title>City Intelligence Agent</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/city_intelligence_agent/logo.jpg"
+    />
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         MOBILE OVERLAY
+    ====================================================== -->
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside id="sidebar" class="sidebar">
+      <!-- ================================================
+             SIDEBAR HEADER
+        ================================================= -->
+
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-icon">🤖</div>
+
+          <div>
+            <h2>City Intelligence</h2>
+
+            <span> AI Assistant </span>
+          </div>
+        </div>
+
+        <!-- MOBILE CLOSE BUTTON -->
+
+        <button
+          id="closeSidebarBtn"
+          class="close-sidebar"
+          aria-label="Close sidebar"
+          type="button"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- ================================================
+             NEW CHAT
+        ================================================= -->
+
+      <button id="newChatBtn" class="new-chat-btn" type="button">
+        <span> ＋ </span>
+
+        New Chat
+      </button>
+
+      <!-- ================================================
+             SIDEBAR CONTENT
+        ================================================= -->
+
+      <div class="sidebar-content">
+        <div class="sidebar-section-title">FEATURES</div>
+
+        <button
+          class="sidebar-item"
+          type="button"
+          onclick="useSuggestion('What is the current weather in Delhi?')"
+        >
+          <span class="sidebar-item-icon"> 🌤️ </span>
+
+          <span> Current Weather </span>
+        </button>
+
+        <button
+          class="sidebar-item"
+          type="button"
+          onclick="useSuggestion('What is the latest news in Mumbai?')"
+        >
+          <span class="sidebar-item-icon"> 📰 </span>
+
+          <span> Latest News </span>
+        </button>
+
+        <button
+          class="sidebar-item"
+          type="button"
+          onclick="
+            useSuggestion('What is the current temperature in Bangalore?')
+          "
+        >
+          <span class="sidebar-item-icon"> 🌡️ </span>
+
+          <span> Temperature </span>
+        </button>
+
+        <button
+          class="sidebar-item"
+          type="button"
+          onclick="useSuggestion('Give me the latest news about Delhi')"
+        >
+          <span class="sidebar-item-icon"> 🗞️ </span>
+
+          <span> City Updates </span>
+        </button>
+      </div>
+
+      <!-- ================================================
+             SIDEBAR FOOTER
+        ================================================= -->
+
+      <div class="sidebar-footer">
+        <div class="footer-line"></div>
+
+        <p>City Intelligence Agent</p>
+
+        <span> © 2026 Uttam Singh </span>
+      </div>
+    </aside>
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main class="main-container">
+      <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+      <header class="topbar">
+        <!-- HAMBURGER -->
+
+        <button
+          id="hamburgerBtn"
+          class="hamburger"
+          type="button"
+          aria-label="Open sidebar"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- PAGE TITLE -->
+
+        <div class="topbar-title">
+          <div class="topbar-icon">🤖</div>
+
+          <div>
+            <h1>City Intelligence</h1>
+
+            <span> Ask anything about a city </span>
+          </div>
+        </div>
+
+        <!-- STATUS -->
+
+        <div class="status">
+          <span class="status-dot"></span>
+
+          <span> Online </span>
+        </div>
+      </header>
+
+      <!-- =================================================
+             CHAT AREA
+        ================================================== -->
+
+      <section id="chatArea" class="chat-area">
+        <!-- =============================================
+                 WELCOME SCREEN
+            ============================================== -->
+
+        <div id="welcomeMessage" class="welcome-screen">
+          <div
+            class="welcome-logo"
+            style="
+              width: 76px;
+              height: 76px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 22px;
+              padding: 6px;
+              border-radius: 20px;
+              background: #1b1f2a;
+              border: 1px solid #343a49;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+              overflow: hidden;
+            "
+          >
+            <img
+              src="/city_intelligence_agent/logo.jpg"
+              alt="logo"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+                display: block;
+              "
+            />
+          </div>
+          <h1>Explore Any City</h1>
+
+          <p class="welcome-description">
+            Ask me about current weather, latest news and other city
+            information.
+          </p>
+
+          <!-- =========================================
+                     SUGGESTIONS
+                ========================================== -->
+
+          <div class="suggestions">
+            <!-- WEATHER -->
+
+            <button
+              class="suggestion-card"
+              type="button"
+              onclick="useSuggestion('What is the current weather in Delhi?')"
+            >
+              <div class="suggestion-icon weather-icon">🌤️</div>
+
+              <div class="suggestion-content">
+                <strong> Current Weather </strong>
+
+                <span> What's the weather in Delhi? </span>
+              </div>
+
+              <span class="arrow"> → </span>
+            </button>
+
+            <!-- NEWS -->
+
+            <button
+              class="suggestion-card"
+              type="button"
+              onclick="useSuggestion('What is the latest news in Mumbai?')"
+            >
+              <div class="suggestion-icon news-icon">📰</div>
+
+              <div class="suggestion-content">
+                <strong> Latest News </strong>
+
+                <span> Show me the latest news in Mumbai </span>
+              </div>
+
+              <span class="arrow"> → </span>
+            </button>
+
+            <!-- TEMPERATURE -->
+
+            <button
+              class="suggestion-card"
+              type="button"
+              onclick="
+                useSuggestion('What is the current temperature in Bangalore?')
+              "
+            >
+              <div class="suggestion-icon city-icon">🌡️</div>
+
+              <div class="suggestion-content">
+                <strong> Temperature </strong>
+
+                <span> What's the temperature in Bangalore? </span>
+              </div>
+
+              <span class="arrow"> → </span>
+            </button>
+
+            <!-- CITY NEWS -->
+
+            <button
+              class="suggestion-card"
+              type="button"
+              onclick="useSuggestion('Give me the latest news about Delhi')"
+            >
+              <div class="suggestion-icon news-icon">🗞️</div>
+
+              <div class="suggestion-content">
+                <strong> City Updates </strong>
+
+                <span> Give me the latest Delhi news </span>
+              </div>
+
+              <span class="arrow"> → </span>
+            </button>
+          </div>
+
+          <div class="quick-label">Or type your own question below</div>
+        </div>
+      </section>
+
+      <!-- =================================================
+             INPUT AREA
+        ================================================== -->
+
+      <div class="input-section">
+        <div class="input-wrapper">
+          <textarea
+            id="messageInput"
+            class="message-input"
+            rows="1"
+            placeholder="Ask about weather, news, or a city..."
+            autocomplete="off"
+          ></textarea>
+
+          <button
+            id="sendBtn"
+            class="send-btn"
+            type="button"
+            aria-label="Send message"
+          >
+            <span> ➤ </span>
+          </button>
+        </div>
+
+        <div class="input-hint">
+          Press
+          <kbd>Enter</kbd>
+          to send
+          <span>•</span>
+          <kbd>Shift + Enter</kbd>
+          for new line
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
