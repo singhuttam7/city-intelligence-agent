@@ -7,8 +7,11 @@
 // BACKEND API
 // ============================================================
 
-const API_URL = "http://127.0.0.1:8000/ask";
-
+const API_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://127.0.0.1:8000/ask"
+    : "https://city-intelligence-agent-backend.onrender.com/ask";
 // ============================================================
 // GET ELEMENTS
 // ============================================================
